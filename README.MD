@@ -1,38 +1,46 @@
-# Entrevista Net Core
+# Entrevista ASP Net Core
 
-## 1- Api Rest (15')
+## Api Rest (15')
 
-> Efectuar las modificaciones necesarias en WebApi1.Controllers.ClientesController.cs para hacer pasar los tests
+1. Efectuar las modificaciones necesarias en WebApi1.Controllers.ClientesController.cs para verfificar las pruebas disponibles en ./WebApi1.Test
 
-  ```bash
-  dotnet test ./WebApi1.Test
-  ```
+   * DeberiaExistirRecursoClientes
+   * DeberiaObtenerClientes
+   * DeberiaObtenerUnCliente
+   * NoDeberiaObtenerClientes
+   * NoDeberiaObtenerUnCliente
 
-> Configurar la resolución de WebApi1.Models.IClientesService como WebApi1.Models.ClientesService en el pipeline de servicios de la api WebApi1
+```bash
+dotnet test ./WebApi1.Test
+```
 
-## 2- Imagen de la app (10')
+2. Configurar la resolución de WebApi1.Models.IClientesService como WebApi1.Models.ClientesService en el pipeline de servicios de la api WebApi1
 
-> Publicar la versión release de la webapi1 mediante
+## Imagen de la app (10')
+
+1. Publicar la versión release de la webapi1 mediante
   
-  ```bash
-  dotnet publish -c Release ./WebApi1 -o app
-  ```
+```bash
+dotnet publish -c Release ./WebApi1 -o app
+```
 
-> Crear el archivo Dockerfile para poder crear la imagen webapi1:1.0 con los resultados de la publicación en ./app. Tomar como imagen base mcr.microsoft.com/dotnet/core/aspnet.
+2. Crear el archivo Dockerfile para poder crear la imagen webapi1:1.0 con los resultados de la publicación en ./app. Tomar como imagen base mcr.microsoft.com/dotnet/core/aspnet.
 
-  ```bash
-  docker build -t webapi1:1.0 .
-  ```
+```bash
+docker build -t webapi1:1.0 .
+```
 
-> Ejecutar la app en un contenedor mediante
+3. Ejecutar la app en un contenedor mediante
 
-  ```bash
-  docker run --rm -p 8080:80 webapi1:1.0
-  ```
+```bash
+docker run --rm -p 8080:80 webapi1:1.0
+```
 
-## 3- Creación del servicio (10')
+## Creación del servicio (10')
 
-> Crear el archivo docker-compose.yml para crear el servicio webapp1 que ejecute 2 replicas de la app. Ejecutar el servicio mediante...
+1. Crear el archivo docker-compose.yml para crear el servicio service-1 que ejecute 2 replicas de la app.  
+
+2. Ejecutar el servicio mediante...
 
 ```bash
 docker swarm init
